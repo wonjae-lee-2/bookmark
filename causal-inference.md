@@ -16,6 +16,8 @@ High-Dimensional Probability <https://www.math.uci.edu/~rvershyn/papers/HDP-book
 
 ## Event
 
+Online Causal Inference Seminar <https://sites.google.com/view/ocis/home>
+
 ICML 2021 - The Neglected Assumptions In Causal Inference <https://sites.google.com/view/naci2021/>
 
 ## Project
