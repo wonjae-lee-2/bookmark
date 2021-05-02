@@ -1,35 +1,71 @@
 # Causal Inference
 
-[Table of contents](index.md)
+[Back](index.md)
+
+## Table of Contents
+
+[Book](book)
+
+[Paper](paper-and-presentation)
+
+[Course](course)
+
+[Event](event)
+
+[Project](project)
+
+[Package](package)
 
 ## Book
 
-Causal Inference in Statistics: a Primer <http://bayes.cs.ucla.edu/jp_home.html>
+Judea Pearl, Causal Inference in Statistics: a Primer (2016) [url](http://bayes.cs.ucla.edu/PRIMER/)
 
-Causal Inference: What If <https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>
+Miguel Hernan, Causal Inference: What If (2020) [url](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/)
 
-Causal Inference: The Mixtape <https://mixtape.scunning.com/index.html>
+Scott Cunninghan, Causal Inference: The Mixtape (2021) [url](https://mixtape.scunning.com/index.html)
 
-Introduction to Causal Inference: from a Machine Learning Perspective <https://www.bradyneal.com/causal-inference-course>
+Brady Neal, Introduction to Causal Inference: from a Machine Learning Perspective (2020) [url](https://www.bradyneal.com/causal-inference-course)
 
-The Effect: An Introduction to Research Design and Causality <https://nickchk.com/causalitybook.html>
+Nick Huntington-Klein, The Effect: An Introduction to Research Design and Causality (2021) [url](https://nickchk.com/causalitybook.html)
 
-High-Dimensional Probability <https://www.math.uci.edu/~rvershyn/papers/HDP-book/HDP-book.html>
+Roman Vershynin, High-Dimensional Probability: An Introduction with Applications in Data Science (2020) [url](https://www.math.uci.edu/~rvershyn/papers/HDP-book/HDP-book.html)
+
+Paul Rosenbaum, Observation and Experiment: An Introduction to Causal Inference (2017) [url](http://www-stat.wharton.upenn.edu/~rosenbap/index.html)
+
+Joshua Angrist, Mostly Harmless Econometrics (2009) [url](http://www.mostlyharmlesseconometrics.com/)
+
+## Paper
+
+Susan Athey and Guido Imbens, Machine Learning Methods Economists Should Know About (2019) [url](https://arxiv.org/abs/1903.10075)
+
+Susan Athey and Guido Imbens, Machine Learning and Econometrics [url](https://www.aeaweb.org/conference/cont-ed/2018-webcasts)
+
+Esther Duflo, Machinistas Meet Randomistas: Useful ML Tools for Empirical Researchers (2018) [slides](https://www.nber.org/conferences/si-2018-development-economics) [video](https://www.nber.org/lecture/machinistas-meet-randomistas-useful-ml-tools-empirical-researchers)
+
+## Course
+
+Brady Neal, Introduction to Causal Inference [url](https://www.bradyneal.com/causal-inference-course)
+
+Stefan Wager, Causal Inference [url](https://web.stanford.edu/~swager/teaching.html)
+
+Elias Bareinboim, Causal Inference [url](https://causalai.net/)
 
 ## Event
 
-Online Causal Inference Seminar <https://sites.google.com/view/ocis/home>
+Online Causal Inference Seminar [url](https://sites.google.com/view/ocis/home)
 
-ICML 2021 - The Neglected Assumptions In Causal Inference <https://sites.google.com/view/naci2021/>
+The Gary Chamberlain Online Seminar in Econometrics [url](https://sites.google.com/view/chamberlainseminar/home)
+
+ICML 2021 - The Neglected Assumptions In Causal Inference [url](https://sites.google.com/view/naci2021/)
 
 ## Project
 
-Microsoft - Causality and Machine Learning <https://www.microsoft.com/en-us/research/group/causal-inference/>
+Microsoft - Causality and Machine Learning [url](https://www.microsoft.com/en-us/research/group/causal-inference/)
 
 ## Package
 
-Causal ML <https://github.com/uber/causalml>
+CausalML [url](https://github.com/uber/causalml)
 
-EconML <https://github.com/microsoft/EconML>
+EconML [url](https://github.com/microsoft/EconML)
 
-DoWhy <https://github.com/microsoft/dowhy>
+DoWhy [url](https://github.com/microsoft/dowhy)
