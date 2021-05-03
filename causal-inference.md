@@ -4,17 +4,17 @@
 
 ## Table of Contents
 
-[Book](book)
+[Book](#book)
 
-[Paper](paper-and-presentation)
+[Paper](#paper)
 
-[Course](course)
+[Course](#course)
 
-[Event](event)
+[Event](#event)
 
-[Project](project)
+[Project](#project)
 
-[Package](package)
+[Package](#package)
 
 ## Book
 

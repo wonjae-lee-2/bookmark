@@ -2,23 +2,23 @@
 
 ## Table of Contents
 
-[Causal Inference](causal-inference)
+[Causal Inference](#causal-inference)
 
-[Economics](economics)
+[Economics](#economics)
 
-[R](r)
+[R](#r)
 
-[Python](python)
+[Python](#python)
 
-[Data Visualization](data-visualization)
+[Data Visualization](#data-visualization)
 
-[Markdown](markdown)
+[Markdown](#markdown)
 
-[Machine Learning](machine-learning)
+[Machine Learning](#machine-learning)
 
-[Linear Algebra](linear-algebra)
+[Linear Algebra](#linear-algebra)
 
-[Impact Evaluation](impact-evaluation)
+[Impact Evaluation](#impact-evalution)
 
 ## Causal Inference
 
