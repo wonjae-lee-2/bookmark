@@ -36,6 +36,8 @@ R for Data Science [url](https://r4ds.had.co.nz/)
 
 Tidyverse [url](https://www.tidyverse.org/)
 
+Shiny [url](https://shiny.rstudio.com/)
+
 ## Python
 
 Anaconda [url](https://www.anaconda.com/)
@@ -47,6 +49,10 @@ pandas [url](https://pandas.pydata.org/)
 matplotlib [url](https://matplotlib.org/)
 
 statsmodels [url](https://www.statsmodels.org/)
+
+Flask [url](https://palletsprojects.com/p/flask/)
+
+django [url](https://www.djangoproject.com/)
 
 ## Data Visualization
 
