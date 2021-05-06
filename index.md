@@ -88,6 +88,8 @@ Harvard - Hanspeter Pfister, Visualization [url](https://www.cs171.org/)
 
 Stanford - Maneesh Agrawala, Visualization [url](http://graphics.stanford.edu/~maneesh/)
 
+NYU - Enrico Bertini, Information Visualization [url](http://enrico.bertini.io/)
+
 MIT Visualization Group [url](http://vis.csail.mit.edu/)
 
 UW Interactive Data Lab [url](http://idl.cs.washington.edu/)
@@ -96,7 +98,9 @@ Harvard Visual Computing Group [url](https://vcg.seas.harvard.edu/)
 
 UBC InfoVis Group [url](http://www.cs.ubc.ca/group/infovis/)
 
-Brown Institute for Media Innovation [url](https://brown.stanford.edu/)
+Stanford-Columbia Brown Institute for Media Innovation [url](https://brown.stanford.edu/)
+
+NYU Visualization, Imaging and Data Analysis Center [url](https://vida.engineering.nyu.edu/)
 
 IEEE VIS [url](http://ieeevis.org/)
 
