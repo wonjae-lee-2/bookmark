@@ -30,6 +30,8 @@ AEA Continuing Education [url](https://www.aeaweb.org/conference/cont-ed)
 
 NBER Summer Institute [url](https://www.nber.org/conferences/summer-institute)
 
+Annual Review of Economics [url](https://www.annualreviews.org/journal/economics)
+
 ## R
 
 R for Data Science [url](https://r4ds.had.co.nz/)
