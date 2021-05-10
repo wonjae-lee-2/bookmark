@@ -34,6 +34,8 @@ Paul Rosenbaum, Observation and Experiment: An Introduction to Causal Inference 
 
 Joshua Angrist, Mostly Harmless Econometrics (2009) [url](http://www.mostlyharmlesseconometrics.com/)
 
+Emre Kiciman and Amit Sharma, Causal Reasoning: Fundamentals and Machine Learning Applications [url](https://causalinference.gitlab.io/)
+
 Richard McElreath, Statistical Rethinking: A Bayesian Course with Examples in R and Stan [url](https://xcelab.net/rm/statistical-rethinking/)
 
 ## Paper
