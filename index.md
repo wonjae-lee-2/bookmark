@@ -124,6 +124,8 @@ PyTorch [url](https://pytorch.org/)
 
 mxnet [url](https://mxnet.apache.org/versions/1.8.0/)
 
+Trustworthy ML Initiative [url](https://www.trustworthyml.org/)
+
 ## Linear Algebra
 
 Introduction to Applied Linear Algebra [url](https://web.stanford.edu/~boyd/vmls/)
