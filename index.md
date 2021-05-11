@@ -20,6 +20,8 @@
 
 [Impact Evaluation](#impact-evalution)
 
+[Coding Tips](#coding-tips)
+
 ## Causal Inference
 
 [Main document](causal-inference.md)
@@ -106,6 +108,8 @@ NYU Visualization, Imaging and Data Analysis Center [url](https://vida.engineeri
 
 IEEE VIS [url](http://ieeevis.org/)
 
+Storytelling with Data Podcast [url](https://www.storytellingwithdata.com/podcast)
+
 ## Markdown
 
 Markdown Guide [url](https://www.markdownguide.org/)
@@ -133,3 +137,7 @@ Introduction to Applied Linear Algebra [url](https://web.stanford.edu/~boyd/vmls
 ## Impact Evalution
 
 Handbook on Using Administrative Data for Research and Evidence-based Policy [url](https://admindatahandbook.mit.edu/book/)
+
+## Coding Tips
+
+[Main document](coding-tips.md)
