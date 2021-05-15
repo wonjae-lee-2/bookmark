@@ -132,6 +132,12 @@
     install(c("tidyverse", "lfe", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
+12. Update the following packaages.
+
+    ```R
+    update(c("tidyverse", "lfe", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    ```
+
 ### Julia
 
 1. Install the latest version from <https://julialang.org/>
@@ -182,13 +188,19 @@
     add StatsKit
     ```
 
-11. Exit Julia and open the settings file in the IJulia kernel directory.
+11. Update the following packages.
+
+    ```Julia
+    up StatsKit
+    ```
+
+12. Exit Julia and open the settings file in the IJulia kernel directory.
 
     ```PowerShell
     notepad C:\Users\wonja\AppData\Roaming\jupyter\kernels\julia-1.6\kernel.json
     ```
 
-12. Add the following command to `argv` and save the settings file.
+13. Add the following command to `argv` and save the settings file.
 
     ```text
     "--project=C:\\Users\\wonja\\Documents\\Julia\\16",
