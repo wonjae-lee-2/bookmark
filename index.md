@@ -38,7 +38,15 @@ Annual Review of Economics [url](https://www.annualreviews.org/journal/economics
 
 R for Data Science [url](https://r4ds.had.co.nz/)
 
+RStudio Cheatsheets [url](https://www.rstudio.com/resources/cheatsheets/)
+
 Tidyverse [url](https://www.tidyverse.org/)
+
+Tidymodels [url](https://www.tidymodels.org/)
+
+R Markdown [url](https://rmarkdown.rstudio.com/)
+
+Bookdown [url](https://bookdown.org/)
 
 Shiny [url](https://shiny.rstudio.com/)
 
@@ -53,6 +61,10 @@ pandas [url](https://pandas.pydata.org/)
 matplotlib [url](https://matplotlib.org/)
 
 statsmodels [url](https://www.statsmodels.org/)
+
+jupyter [url](https://jupyter.org/)
+
+jupyter book [url](https://jupyterbook.org/)
 
 Flask [url](https://palletsprojects.com/p/flask/)
 
