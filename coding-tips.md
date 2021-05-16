@@ -21,11 +21,11 @@
 3. Add the following commands and save the profile file.
 
     ```PowerShell
-    $Env:github = "C:\Users\wonja\Documents\GitHub"
-    $Env:python = "C:\Users\wonja\Documents\Python"
+    $Env:git = "C:\Users\wonja\Documents\GitHub"
+    $Env:py = "C:\Users\wonja\Documents\Python"
     $Env:r = "C:\Program Files\R\R-4.0.5\bin\x64"
     $Env:d3 = "C:\Users\wonja\Documents\GitHub\D3"
-    $Env:julia = "C:\Users\wonja\Documents\Julia"
+    $Env:jl = "C:\Users\wonja\Documents\Julia"
     Set-Location -Path "C:\Users\wonja\Documents\GitHub"
     ```
 
