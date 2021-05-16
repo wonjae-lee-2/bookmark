@@ -29,7 +29,29 @@
     Set-Location -Path "C:\Users\wonja\Documents\GitHub"
     ```
 
-4. Restart PowerShell
+4. Create a run script.
+
+    ```PowerShell
+    notepad C:\Users\wonja\Documents\GitHub\Run.ps1
+    ```
+
+5. Add the following commands and save the script.
+
+    ```PowerShell
+    param ($Env)
+
+    function RunEnv {
+        if ($null -eq $Env) {Write-Warning "Env parameter is required."}
+        elseif ($Env -eq "py39") {& "C:\Users\wonja\Documents\Python\39\Scripts\Activate.ps1"}
+        elseif ($Env -eq "jl16") {& "C:\Users\wonja\AppData\Local\Programs\Julia-1.6.1\bin\julia.exe" --project=C:\Users\wonja\Documents\Julia\16}
+        elseif ($Env -eq "r40") {& "C:\Program Files\R\R-4.0.5\bin\x64\RGui.exe"}
+        else {Write-Warning "Env parameter $Env doesn't exist."}
+    }
+
+    RunEnv $Env
+    ```
+
+6. Restart PowerShell
 
 ### Python
 
@@ -62,10 +84,10 @@
     Flask
     ```
 
-6. Activate the environment.
+6. Update Python path in the run acript and activate the environment.
 
     ```PowerShell
-    C:\Users\wonja\Documents\Python\39\Scripts\activate.ps1
+    C:\Users\wonja\Documents\GitHub\Run.ps1 -Env py39
     ```
 
 7. Install packages from the requirements file.
@@ -89,13 +111,13 @@
 3. Activate the python environment.
 
     ```PowerShell
-    C:\Users\wonja\Documents\Python\39\Scripts\activate.ps1
+    C:\Users\wonja\Documents\GitHub\Run.ps1 -Env py39
     ```
 
-4. Open RGui.
+4. Update R path in the run script and open RGui.
 
     ```PowerShell
-    & "C:\Program Files\R\R-4.0.5\bin\x64\RGui.exe"
+    C:\Users\wonja\Documents\GitHub\Run.ps1 -Env r40
     ```
 
 5. Install the IRkernel package.
@@ -147,60 +169,44 @@
 3. Activate the python environment.
 
     ```PowerShell
-    C:\Users\wonja\Documents\Python\39\Scripts\activate.ps1
+    C:\Users\wonja\Documents\GitHub\Run.ps1 -Env py39
     ```
 
-4. Create a new project directory.
+4. Update Julia path in the run script and open Julia
 
     ```PowerShell
-    New-Item -Path "C:\Users\wonja\Documents\Julia\" -Name "16" -Itemtype "directory"
+    C:\Users\wonja\Documents\GitHub\Run.ps1 -Env jl16
     ```
 
-5. Set location to the new project directory.
+5. Enter the Pkg REPL by pressing `]`.
 
-    ```PowerShell
-    Set-Location -Path "C:\Users\wonja\Documents\Julia\16\"
-    ```
-
-6. Open Julia
-
-    ```PowerShell
-    C:\Users\wonja\AppData\Local\Programs\Julia-1.6.1\bin\julia.exe
-    ```
-
-7. Enter the Pkg REPL by pressing `]`.
-
-8. Activate the project.
-
-    ```Julia
-    activate .
-    ```
-
-9. Install the following packages.
+6. Install the following packages.
 
     ```Julia
     add IJulia
     add StatsKit
     add Plots
+    add StatsPlots
     add Pluto
     ```
 
-10. Update the following packages.
+7. Update the following packages.
 
     ```Julia
     up IJulia
     up StatsKit
     up Plots
+    up StatsPlots
     up Pluto
     ```
 
-11. Exit Julia and open the settings file in the IJulia kernel directory.
+8. Exit Julia and open the settings file in the IJulia kernel directory.
 
     ```PowerShell
     notepad C:\Users\wonja\AppData\Roaming\jupyter\kernels\julia-1.6\kernel.json
     ```
 
-13. Add the following command to `argv` and save the settings file.
+9. Add the following command to `argv` and save the settings file.
 
     ```text
     "--project=C:\\Users\\wonja\\Documents\\Julia\\16",
