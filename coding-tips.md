@@ -41,11 +41,22 @@
     param ($Env)
 
     function RunEnv {
-        if ($null -eq $Env) {Write-Warning "Env parameter is required."}
-        elseif ($Env -eq "py39") {& "C:\Users\wonja\Documents\Python\39\Scripts\Activate.ps1"}
-        elseif ($Env -eq "jl16") {& "C:\Users\wonja\AppData\Local\Programs\Julia-1.6.1\bin\julia.exe" --project=C:\Users\wonja\Documents\Julia\16}
-        elseif ($Env -eq "r40") {& "C:\Program Files\R\R-4.0.5\bin\x64\RGui.exe"}
-        else {Write-Warning "Env parameter $Env doesn't exist."}
+        if ($null -eq $Env) {
+            Write-Warning "Env parameter is required."
+        }
+        elseif ($Env -eq "py39") {
+            & "C:\Users\wonja\Documents\Python\39\Scripts\Activate.ps1"
+        }
+        elseif ($Env -eq "jl16") {
+            Set-Location -Path "C:\Users\wonja\Documents\Julia\16"
+            & "C:\Users\wonja\AppData\Local\Programs\Julia-1.6.1\bin\julia.exe" --project=.
+        }
+        elseif ($Env -eq "r40") {
+            & "C:\Program Files\R\R-4.0.5\bin\x64\RGui.exe"
+        }
+        else {
+            Write-Warning "Env parameter $Env doesn't exist."
+        }
     }
 
     RunEnv $Env
