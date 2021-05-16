@@ -170,31 +170,31 @@
 
 7. Enter the Pkg REPL by pressing `]`.
 
-8. Install the IJulia package.
-
-    ```Julia
-    add IJulia
-    ```
-
-9. Activate the project.
+8. Activate the project.
 
     ```Julia
     activate .
     ```
 
-10. Install the following packages.
+9. Install the following packages.
 
     ```Julia
+    add IJulia
     add StatsKit
+    add Plots
+    add Pluto
     ```
 
-11. Update the following packages.
+10. Update the following packages.
 
     ```Julia
+    up IJulia
     up StatsKit
+    up Plots
+    up Pluto
     ```
 
-12. Exit Julia and open the settings file in the IJulia kernel directory.
+11. Exit Julia and open the settings file in the IJulia kernel directory.
 
     ```PowerShell
     notepad C:\Users\wonja\AppData\Roaming\jupyter\kernels\julia-1.6\kernel.json
