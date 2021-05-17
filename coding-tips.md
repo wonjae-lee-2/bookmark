@@ -54,6 +54,9 @@
         elseif ($Env -eq "r40") {
             & "C:\Program Files\R\R-4.0.5\bin\x64\RGui.exe"
         }
+        elseif ($Env -eq "d3") {
+            python -m http.server --directory C:\Users\wonja\Documents\GitHub\D3
+        }
         else {
             Write-Warning "Env parameter $Env doesn't exist."
         }
