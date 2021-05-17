@@ -34,6 +34,16 @@ NBER Summer Institute [url](https://www.nber.org/conferences/summer-institute)
 
 Annual Review of Economics [url](https://www.annualreviews.org/journal/economics)
 
+Summer Institute in Machine Learning in Economics [url](https://www.chicagobooth.edu/research/center-for-applied-artificial-intelligence/opportunities/event---summer-school-2021)
+
+Joshua Blumenstock [url](http://www.jblumenstock.com/)
+
+Data-Intensive Development Lab [url](https://didl.berkeley.edu/)
+
+Raj Chetty [url](http://www.rajchetty.com/)
+
+Opportunity Insights [url](https://opportunityinsights.org/)
+
 ## R
 
 R for Data Science [url](https://r4ds.had.co.nz/)
