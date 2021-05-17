@@ -223,7 +223,7 @@
 9. Add the following command to `argv` and save the settings file.
 
     ```text
-    "--project=C:\\Users\\wonja\\Documents\\Julia\\16",
+    "--project=C:\\Users\\wonja\\Documents\\Julia\\16"
     ```
 
 ### Visual Studio Code
@@ -240,6 +240,32 @@
     * PowerShell from Microsoft
     * markdownlint from David Anson
     * Julia from julialang
+
+3. Open the VS Code settings file.
+
+    ```PowerShell
+    notepad C:\Users\wonja\AppData\Roaming\Code\User\settings.json
+    ```
+
+4. Add the following commands and save the settings file.
+
+    ```JSON
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+    ```
 
 ### GitHub
 
@@ -263,9 +289,9 @@
 
 8. Create `.vscode` subfolder in the repository.
 
-9. Create `settings.json` in the subfolder with the following commands.
+9. Create `settings.json` in the `.vscode` subfolder with the following commands.
 
-    ```json
+    ```JSON
     {
         "python.pythonPath": "C:\\Users\\wonja\\Documents\\Python\\39\\Scripts\\python.exe",
         "julia.environmentPath": "c:\\Users\\wonja\\Documents\\Julia\\16"
