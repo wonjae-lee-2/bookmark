@@ -150,25 +150,29 @@
 
 8. Open RStudio from the start menu.
 
-9. Install the renv package.
+9. Uncheck `Restore .RData into workspace at startup` in the Global Options.
 
-   ```R
-   install.packages("renv")
-   ```
+10. Set `Save workspace to .RData on exit` to `Never` in the Global Options.
 
-10. Initialize a new project.
+11. Install the renv package.
+
+    ```R
+    install.packages("renv")
+    ```
+
+12. Initialize a new project.
 
     ```R
     renv::init(project = "C:/Users/wonja/Documents/R/40", bare = TRUE)
     ```
 
-11. Install the following packaages.
+13. Install the following packaages.
 
     ```R
     install(c("tidyverse", "lfe", "texreg", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
-12. Update the following packaages.
+14. Update the following packaages.
 
     ```R
     update(c("tidyverse", "lfe", "texreg", "tidymodels", "rmarkdown", "bookdown", "shiny"))
