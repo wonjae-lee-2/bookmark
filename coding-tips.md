@@ -165,13 +165,13 @@
 11. Install the following packaages.
 
     ```R
-    install(c("tidyverse", "lfe", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    install(c("tidyverse", "lfe", "texreg", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
 12. Update the following packaages.
 
     ```R
-    update(c("tidyverse", "lfe", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    update(c("tidyverse", "lfe", "texreg", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
 ### Julia
