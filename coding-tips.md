@@ -91,6 +91,7 @@
    numpy
    pandas
    matplotlib
+   seaborn
    statsmodels
    linearmodels
    jupyterlab

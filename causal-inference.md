@@ -66,6 +66,8 @@ ICML 2021 - The Neglected Assumptions In Causal Inference [url](https://sites.go
 
 Microsoft - Causality and Machine Learning [url](https://www.microsoft.com/en-us/research/group/causal-inference/)
 
+Uber - Using Causal Inference to Improve the Uber User Experience [url](https://eng.uber.com/causal-inference-at-uber/)
+
 ## Package
 
 CausalML [url](https://github.com/uber/causalml)
