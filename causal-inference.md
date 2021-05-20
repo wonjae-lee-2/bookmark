@@ -42,8 +42,6 @@ Richard McElreath, Statistical Rethinking: A Bayesian Course with Examples in R 
 
 Susan Athey and Guido Imbens, Machine Learning Methods Economists Should Know About (2019) [url](https://arxiv.org/abs/1903.10075)
 
-Susan Athey and Guido Imbens, Machine Learning and Econometrics [url](https://www.aeaweb.org/conference/cont-ed/2018-webcasts)
-
 Esther Duflo, Machinistas Meet Randomistas: Useful ML Tools for Empirical Researchers (2018) [slides](https://www.nber.org/conferences/si-2018-development-economics) [video](https://www.nber.org/lecture/machinistas-meet-randomistas-useful-ml-tools-empirical-researchers)
 
 ## Course
@@ -61,6 +59,10 @@ Online Causal Inference Seminar [url](https://sites.google.com/view/ocis/home)
 The Gary Chamberlain Online Seminar in Econometrics [url](https://sites.google.com/view/chamberlainseminar/home)
 
 ICML 2021 - The Neglected Assumptions In Causal Inference [url](https://sites.google.com/view/naci2021/)
+
+ASSA 2020 - Mastering Mostly Harmless Econometrics [url](https://www.aeaweb.org/conference/cont-ed/2020-webcasts)
+
+ASSA 2018 - Machine Learning and Econometrics [url](https://www.aeaweb.org/conference/cont-ed/2018-webcasts)
 
 ## Project
 
