@@ -88,6 +88,7 @@
 5. Add the following requirement specifiers and save the requirements file.
 
    ```text
+   autopep8
    numpy
    pandas
    matplotlib
@@ -168,16 +169,18 @@
     renv::init(project = "C:/Users/wonja/Documents/R/40", bare = TRUE)
     ```
 
-13. Install the following packaages.
+13. Install the following packages.
 
     ```R
-    install(c("tidyverse", "lfe", "texreg", "patchwork", "plotly", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    install(c("tidyverse", "styler", "miniUI", "lfe", "texreg", "patchwork", "plotly", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
-14. Update the following packaages.
+14. Modify keyboard shortcuts for `Style active file` to `Alt + Shift + F`.
+
+15. Update the following packaages.
 
     ```R
-    update(c("tidyverse", "lfe", "texreg", "patchwork", "plotly", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    update(c("tidyverse", "styler", "miniUI", "lfe", "texreg", "patchwork", "plotly", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
 ### Julia
