@@ -92,6 +92,7 @@
    pandas
    matplotlib
    seaborn
+   plotly
    statsmodels
    linearmodels
    jupyterlab
@@ -170,13 +171,13 @@
 13. Install the following packaages.
 
     ```R
-    install(c("tidyverse", "lfe", "texreg", "patchwork", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    install(c("tidyverse", "lfe", "texreg", "patchwork", "plotly", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
 14. Update the following packaages.
 
     ```R
-    update(c("tidyverse", "lfe", "texreg", "patchwork", "tidymodels", "rmarkdown", "bookdown", "shiny"))
+    update(c("tidyverse", "lfe", "texreg", "patchwork", "plotly", "tidymodels", "rmarkdown", "bookdown", "shiny"))
     ```
 
 ### Julia
