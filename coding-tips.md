@@ -185,6 +185,7 @@
 1. Install the following extensions.
 
    - "Remote-SSH" from Microsoft
+   - "Docker" from Microsoft
    - "Python" from Microsoft
    - "Jupyter" from Microsoft
    - "Julia" from julialang
@@ -208,6 +209,26 @@
       "rust-client.rustupPath": "/home/ec2-user/.cargo/bin/rustup"
    }
    ```
+
+### R
+
+1. Install and start Docker.
+
+   ```Shell
+   sudo yum install docker
+   sudo systemctl start docker
+   sudo docker run hello-world
+   ```
+
+2. Check the latest version of R on <https://www.r-project.org/>
+
+3. Run the tidyverse container.
+
+   ```Shell
+   export R_VERSION=4.1.2
+   sudo docker run -d -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse:${R_VERSION}
+   ```
+
 ### Shell
 
 1. Reboot the virtual machine.
@@ -215,25 +236,3 @@
    ```Shell
    sudo reboot
    ```
-
-### R and RStudio
-
-1. Download and Install.
-
-   ```Shell
-   cd ~/downloads
-   sudo amazon-linux-extras enable epel
-   yum clean metadata
-   sudo yum install epel-release
-   export R_VERSION=4.1.2
-   curl -O https://cdn.rstudio.com/r/centos-7/pkgs/R-${R_VERSION}-1-1.x86_64.rpm
-   sudo yum install R-${R_VERSION}-1-1.x86_64.rpm
-   /opt/R/${R_VERSION}/bin/R --version
-   sudo ln -fs /opt/R/${R_VERSION}/bin/R /usr/local/bin/R
-   sudo ln -fs /opt/R/${R_VERSION}/bin/Rscript /usr/local/bin/Rscript
-   wget https://download2.rstudio.org/server/centos7/x86_64/rstudio-server-rhel-2021.09.2-382-x86_64.rpm
-   sudo yum install rstudio-server-rhel-2021.09.2-382-x86_64.rpm
-   sudo timedatectl set-timezone Europe/Zurich
-   sudo passwd ec2-user
-   ```
-   
