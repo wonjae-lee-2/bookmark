@@ -153,7 +153,8 @@
 
    ```Shell
    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-   ~/.cargo/bin/rustc --version
+   sudo reboot
+   rustc --version
    ```
 
 2. Update Rust.
@@ -187,13 +188,21 @@
    ```Shell
    sudo yum install docker
    sudo systemctl start docker
-   sudo docker run hello-world
+   sudo docker run --rm hello-world
    ```
 
-2. Run the tidyverse container.
+2. Create the docker group and add your user to the group
 
    ```Shell
-   sudo docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+   sudo reboot
+   ```
+
+3. Run the tidyverse container.
+
+   ```Shell
+   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
    ```
 
 ### Visual Studio Code
