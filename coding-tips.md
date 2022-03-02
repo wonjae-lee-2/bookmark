@@ -180,6 +180,24 @@
 
 3. Add the SSH key to GitHub.
 
+### R
+
+1. Install and start Docker.
+
+   ```Shell
+   sudo yum install docker
+   sudo systemctl start docker
+   sudo docker run hello-world
+   ```
+
+2. Check the latest version of R on <https://www.r-project.org/>
+
+3. Run the tidyverse container.
+
+   ```Shell
+   sudo docker run -d -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
+   ```
+
 ### Visual Studio Code
 
 1. Install the following extensions.
@@ -208,25 +226,6 @@
       "julia.environmentPath": "/home/ec2-user/venv/julia-1.7.2/",
       "rust-client.rustupPath": "/home/ec2-user/.cargo/bin/rustup"
    }
-   ```
-
-### R
-
-1. Install and start Docker.
-
-   ```Shell
-   sudo yum install docker
-   sudo systemctl start docker
-   sudo docker run hello-world
-   ```
-
-2. Check the latest version of R on <https://www.r-project.org/>
-
-3. Run the tidyverse container.
-
-   ```Shell
-   export R_VERSION=4.1.2
-   sudo docker run -d -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse:${R_VERSION}
    ```
 
 ### Shell
