@@ -197,7 +197,7 @@
 
    ```Shell
    sudo systemctl start docker
-   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
+   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/github/unhcr rocker/tidyverse
    ```
 
 ### Visual Studio Code
