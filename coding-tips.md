@@ -183,25 +183,19 @@
 
 ### R
 
-1. Install and start Docker.
+1. Install and add the user to the docker group.
 
    ```Shell
    sudo yum install docker
-   sudo systemctl start docker
-   sudo docker run --rm hello-world
-   ```
-
-2. Create the docker group and add your user to the group
-
-   ```Shell
    sudo groupadd docker
    sudo usermod -aG docker $USER
    sudo reboot
    ```
 
-3. Run the tidyverse container.
+2. Start the docker and run the tidyverse container.
 
    ```Shell
+   sudo systemctl start docker
    docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
    ```
 
@@ -234,11 +228,4 @@
       "rust-client.rustupPath": "/home/ec2-user/.cargo/bin/rustup"
    }
    ```
-
-### Shell
-
-1. Reboot the virtual machine.
-
-   ```Shell
-   sudo reboot
-   ```
+   
