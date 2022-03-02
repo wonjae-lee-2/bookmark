@@ -90,8 +90,7 @@
 3. Create the user `postgres` and a folder for a databse cluster.
 
    ```Shell
-   sudo adduser postgres
-   sudo passwd postgres
+   sudo adduser postgres -p gloryvine
    sudo mkdir /opt/pgsql/${PGSQL_VERSION}/data
    sudo chown postgres /opt/pgsql/${PGSQL_VERSION}/data
    ```
