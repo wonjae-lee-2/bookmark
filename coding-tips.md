@@ -153,7 +153,7 @@
 
    ```Shell
    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-   rustc --version
+   ~/.cargo/bin/rustc --version
    ```
 
 2. Update Rust.
