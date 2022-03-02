@@ -190,12 +190,10 @@
    sudo docker run hello-world
    ```
 
-2. Check the latest version of R on <https://www.r-project.org/>
-
-3. Run the tidyverse container.
+2. Run the tidyverse container.
 
    ```Shell
-   sudo docker run -d -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
+   sudo docker run -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/unhcr rocker/tidyverse
    ```
 
 ### Visual Studio Code
