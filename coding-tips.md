@@ -10,7 +10,7 @@
 
 ### Shell
 
-1. Update packages and create folders
+1. Update packages and create folders.
 
    ```Shell
    sudo yum update
@@ -36,11 +36,11 @@
    sudo yum-builddep python3
    sudo yum install perl-IPC-Cmd
    sudo yum install perl-Test-Simple
-   ./Configure --prefix=/opt/openssl/${OPENSSL_VERSION} --libdir=lib --openssldir=/opt/openssl/${OPENSSL_VERSION}/ssl '-Wl,-rpath,/opt/openssl/${OPENSSL_VERSION}/lib'
+   ./Configure --prefix=/opt/openssl-${OPENSSL_VERSION} --libdir=lib --openssldir=/opt/openssl-${OPENSSL_VERSION}/ssl '-Wl,-rpath,/opt/openssl-${OPENSSL_VERSION}/lib'
    make -j -s
    make test
    sudo make install
-   /opt/openssl/${OPENSSL_VERSION}/bin/openssl version
+   /opt/openssl-${OPENSSL_VERSION}/bin/openssl version
    ```
 
 4. Check the latest version of Python on <https://www.python.org/>.
@@ -54,26 +54,33 @@
    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
    tar -xf Python-${PYTHON_VERSION}.tgz
    cd Python-${PYTHON_VERSION}
-   ./configure --prefix=/opt/python/${PYTHON_VERSION} --enable-optimizations --with-lto --with-openssl=/opt/openssl/${OPENSSL_VERSION} --with-openssl-rpath=/opt/openssl/${OPENSSL_VERSION}/lib LDFLAGS=-Wl,-rpath,/opt/python/${PYTHON_VERSION}/lib
+   ./configure --prefix=/opt/python-${PYTHON_VERSION} --enable-optimizations --with-lto --with-openssl=/opt/openssl-${OPENSSL_VERSION} --with-openssl-rpath=/opt/openssl-${OPENSSL_VERSION}/lib LDFLAGS=-Wl,-rpath,/opt/python-${PYTHON_VERSION}/lib
    make -j -s
    make test
    sudo make install
-   /opt/python/${PYTHON_VERSION}/bin/python3.10 --version
+   /opt/python-${PYTHON_VERSION}/bin/python3.10 --version
    ```
 
-6. Create a virtual environment
+6. Create a symlink to Python.
 
    ```Shell
-   /opt/python/${PYTHON_VERSION}/bin/python3.10 -m venv ~/venv/python-${PYTHON_VERSION}
+   sudo ln -s /opt/python-${PYTHON_VERSION}/bin/python3.10 /usr/local/bin/python-${PYTHON_VERSION}
+   # Delete obsolete symlinks to Python in /usr/local/bin
+   ```
+
+7. Create a virtual environment.
+
+   ```Shell
+   python-${PYTHON_VERSION} -m venv ~/venv/python-${PYTHON_VERSION}
    source ~/venv/python-${PYTHON_VERSION}/bin/activate
    deactivate   
    ```
 
 ### PostgreSQL
 
-1. Check the latest version of PostgreSQL on <https://www.postgresql.org/>
+1. Check the latest version of PostgreSQL on <https://www.postgresql.org/>.
 
-2. Download and install PostgreSQL
+2. Download and install PostgreSQL.
 
    ```Shell
    cd ~/downloads
@@ -81,55 +88,62 @@
    wget https://ftp.postgresql.org/pub/source/v${PGSQL_VERSION}/postgresql-${PGSQL_VERSION}.tar.gz
    tar -xf postgresql-${PGSQL_VERSION}.tar.gz
    cd postgresql-${PGSQL_VERSION}
-   ./configure --prefix=/opt/pgsql/${PGSQL_VERSION}
+   ./configure --prefix=/opt/pgsql-${PGSQL_VERSION}
    make -j -s
    make check
    sudo make install
    ```
 
-3. Create the user `postgres` and a folder for a databse cluster.
+3. Create a symlink to PostgreSQL.
+
+   ```Shell
+   sudo ln -s /opt/pgsql-${PGSQL_VERSION}/bin/psql /usr/local/bin/psql-${PGSQL_VERSION}
+   # Delete obsolete symlinks to PostgreSQL in /usr/local/bin
+   ```
+
+4. Create the user `postgres` and a folder for a databse cluster.
 
    ```Shell
    sudo adduser postgres
    sudo passwd postgres
-   sudo mkdir /opt/pgsql/${PGSQL_VERSION}/data
-   sudo chown postgres /opt/pgsql/${PGSQL_VERSION}/data
+   sudo mkdir /opt/pgsql-${PGSQL_VERSION}/data
+   sudo chown postgres /opt/pgsql-${PGSQL_VERSION}/data
    ```
 
-4. Log in as the user `postgres` and initialize a database cluster.
+5. Log in as the user `postgres` and initialize a database cluster.
 
    ```Shell
    su - postgres
    export PGSQL_VERSION=14.2
-   /opt/pgsql/${PGSQL_VERSION}/bin/initdb -D /opt/pgsql/${PGSQL_VERSION}/data
+   /opt/pgsql-${PGSQL_VERSION}/bin/initdb -D /opt/pgsql-${PGSQL_VERSION}/data
    ```
 
-5. Update connection settings.
+6. Update connection settings.
 
    ```Shell
-   nano /opt/pgsql/${PGSQL_VERSION}/data/pg_hba.conf
+   nano /opt/pgsql-${PGSQL_VERSION}/data/pg_hba.conf
    # Add "host all all all md5" to IPv4 local connections.
-   nano /opt/pgsql/${PGSQL_VERSION}/data/postgresql.conf
+   nano /opt/pgsql-${PGSQL_VERSION}/data/postgresql.conf
    # Set "listen_addresses" to '*' under connection strings.
    ```
 
-6. Start a PostgreSQL server.
+7. Start a PostgreSQL server.
 
    ```Shell
-   /opt/pgsql/${PGSQL_VERSION}/bin/pg_ctl -D /opt/pgsql/${PGSQL_VERSION}/data -l logfile start
+   /opt/pgsql-${PGSQL_VERSION}/bin/pg_ctl -D /opt/pgsql-${PGSQL_VERSION}/data -l logfile start
    ```
 
-7. Add a password to the user `postgres` and log out.
+8. Add a password to the user `postgres` and log out.
 
    ```Shell
-   /opt/pgsql/${PGSQL_VERSION}/bin/psql
+   psql-${PGSQL_VERSION}
    # Type "ALTER USER postgres PASSWORD 'gloryvine';"
    logout
    ```
 
 ### Julia
 
-1. Check the latest version of Julia on <https://julialang.org/>
+1. Check the latest version of Julia on <https://julialang.org/>.
 
 2. Download and install Julia.
 
@@ -137,15 +151,50 @@
    cd ~/downloads
    export JULIA_VERSION=1.7.2
    wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-${JULIA_VERSION}-linux-x86_64.tar.gz
-   sudo mkdir -p /opt/julia/${JULIA_VERSION}
-   sudo tar -xf julia-${JULIA_VERSION}-linux-x86_64.tar.gz --strip-components=1 -C /opt/julia/${JULIA_VERSION}
+   sudo mkdir /opt/julia-${JULIA_VERSION}
+   sudo tar -xf julia-${JULIA_VERSION}-linux-x86_64.tar.gz -C /opt/
    ```
 
-3. Create a project environment.
+3. Create a symlink to Julia.
 
    ```Shell
-   /opt/julia/${JULIA_VERSION}/bin/julia
+   sudo ln -s /opt/julia-${JULIA_VERSION}/bin/julia /usr/local/bin/julia-${JULIA_VERSION}
+   # Delete obsolete symlinks to Julia in /usr/local/bin
+   ```
+
+4. Create a project environment.
+
+   ```Shell
+   julia-${JULIA_VERSION}
    # In the package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add DataFrames".
+   ```
+
+### Node.js
+
+1. Download and install the Node.js binary.
+
+   ```Shell
+   cd ~/downloads
+   export NODE_VERSION=16.14.0
+   wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz
+   sudo mkdir /opt/node-${NODE_VERSION}
+   sudo tar -xf node-v${NODE_VERSION}-linux-x64.tar.xz --strip-components=1 -C /opt/node-${NODE_VERSION}
+   ```
+
+2. Add the Node.js directory to `$PATH`.
+
+   ```Shell
+   nano ~/.bash_profile
+   # Add "/opt/node-${NODE_VERSION}/bin" to `$PATH`. Delete obsolete Node.js directories from `$PATH`.
+   ```
+
+3. Log out of EC2 and then SSH into EC2 again.
+
+4. Check the version of Node.js and npm.
+
+   ```Shell
+   node -v
+   npm -v
    ```
 
 ### Rust
@@ -154,17 +203,22 @@
 
    ```Shell
    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-   sudo reboot
+   ```
+
+2. Log out of EC2 and then SSH into EC2 again.
+
+3. Check the version of Rust.
+
+   ```Shell
    rustc --version
    ```
 
-2. Update Rust.
+4. Update Rust.
 
    ```Shell
    rustup check
    rustup update
    ```
-
 ### Git
 
 1. Install Git.
@@ -193,10 +247,16 @@
    sudo reboot
    ```
 
-2. Start the docker and run the tidyverse container.
+2. Start and test the docker
 
    ```Shell
    sudo systemctl start docker
+   docker run --rm hello-world
+   ```
+
+3. Run the tidyverse container.
+
+   ```Shell
    docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/github/unhcr rocker/tidyverse
    ```
 
@@ -213,13 +273,13 @@
    - "ESLint" from Microsoft
    - "Visual Studio IntelliCode" from Microsoft
 
-3. Open the VS Code settings file.
+2. Open the VS Code settings file.
 
    ```Shell
    nano ~/.vscode-server/data/Machine/settings.json
    ```
 
-4. Add the following settings.
+3. Add the following settings.
 
    ```JSON
    {
