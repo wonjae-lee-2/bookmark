@@ -263,7 +263,7 @@
 
 ### Visual Studio Code
 
-1. Install the following extensions.
+1. Install the following extensions on the local machine.
 
    - "Remote-SSH" from Microsoft
    - "Docker" from Microsoft
@@ -274,13 +274,15 @@
    - "ESLint" from Microsoft
    - "Visual Studio IntelliCode" from Microsoft
 
-2. Open the VS Code settings file.
+2. Connect to the virtual machine and install the extensions.
+
+3. Open the VS Code settings file.
 
    ```Shell
    nano ~/.vscode-server/data/Machine/settings.json
    ```
 
-3. Add the following settings.
+4. Add the following settings.
 
    ```JSON
    {
