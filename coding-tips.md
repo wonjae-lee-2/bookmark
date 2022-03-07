@@ -219,22 +219,6 @@
    rustup check
    rustup update
    ```
-### Git
-
-1. Install Git.
-
-   ```Shell
-   sudo yum install git
-   ```
-
-2. Generate and copy a SSH key.
-
-   ```Shell
-   ssh-keygen -t ed25519
-   nano ~/.ssh/id_ed25519.pub
-   ```
-
-3. Add the SSH key to GitHub.
 
 ### R
 
@@ -259,6 +243,23 @@
    ```Shell
    docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github,dst=/home/rstudio/github rocker/tidyverse
    ```
+
+### Git
+
+1. Install Git.
+
+   ```Shell
+   sudo yum install git
+   ```
+
+2. Generate and copy a SSH key.
+
+   ```Shell
+   ssh-keygen -t ed25519
+   nano ~/.ssh/id_ed25519.pub
+   ```
+
+3. Add the SSH key to GitHub.
 
 ### Visual Studio Code
 
