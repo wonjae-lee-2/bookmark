@@ -283,9 +283,9 @@
 
    ```JSON
    {
-      "python.defaultInterpreterPath": "/home/ec2-user/venv/python-3.10.2/bin/python",
-      "julia.executablePath": "/opt/julia/1.7.2/bin/julia",
-      "julia.environmentPath": "/home/ec2-user/venv/julia-1.7.2/",
+      "python.defaultInterpreterPath": "/home/ec2-user/venv/python-${PYTHON_VERSION}/bin/python",
+      "julia.executablePath": "/opt/julia-${JULIA_VERSION}/bin/julia",
+      "julia.environmentPath": "/home/ec2-user/venv/julia-${JULIA_VERSION}/",
       "rust-client.rustupPath": "/home/ec2-user/.cargo/bin/rustup"
    }
    ```
