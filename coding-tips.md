@@ -257,7 +257,7 @@
 3. Run the tidyverse container.
 
    ```Shell
-   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github/unhcr,dst=/home/rstudio/github/unhcr rocker/tidyverse
+   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github,dst=/home/rstudio/github rocker/tidyverse
    ```
 
 ### Visual Studio Code
