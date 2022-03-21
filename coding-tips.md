@@ -20,7 +20,7 @@
 
 ### Python
 
-1. Check the latest version of OpenSSL on <https://www.openssl.org//>.
+1. Check the latest version of OpenSSL on <https://www.openssl.org/>.
 
 2. Download and install OpenSSL.
 
@@ -28,7 +28,7 @@
 
    ```Shell
    cd ~/downloads
-   export OPENSSL_VERSION=3.0.1
+   export OPENSSL_VERSION=3.0.2
    wget https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz
    tar -xf openssl-${OPENSSL_VERSION}.tar.gz
    cd openssl-${OPENSSL_VERSION}
@@ -49,8 +49,8 @@
 
    ```Shell
    cd ~/downloads
-   export OPENSSL_VERSION=3.0.1
-   export PYTHON_VERSION=3.10.2
+   export OPENSSL_VERSION=3.0.2
+   export PYTHON_VERSION=3.10.3
    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
    tar -xf Python-${PYTHON_VERSION}.tgz
    cd Python-${PYTHON_VERSION}
@@ -241,7 +241,7 @@
 3. Run the tidyverse container.
 
    ```Shell
-   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github,dst=/home/rstudio/github rocker/tidyverse
+   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github,dst=/home/rstudio/github rocker/tidyverse:4.1.3
    ```
 
 ### Git
