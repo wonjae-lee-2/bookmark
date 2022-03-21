@@ -76,6 +76,8 @@
    deactivate   
    ```
 
+8. Update the VS Code settings file.
+
 ### PostgreSQL
 
 1. Check the latest version of PostgreSQL on <https://www.postgresql.org/>.
@@ -168,6 +170,8 @@
    julia-${JULIA_VERSION}
    # In the package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add DataFrames".
    ```
+
+5. Update the VS Code settings file.
 
 ### Node.js
 
