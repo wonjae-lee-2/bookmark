@@ -164,11 +164,12 @@
    # Delete obsolete symlinks to Julia in /usr/local/bin
    ```
 
-4. Create a project environment.
+4. Install IJulia and create a project environment.
 
    ```Shell
    julia-${JULIA_VERSION}
-   # In the package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add DataFrames".
+   # In Julia mode, enter ENV["JUPYTER"]="~/venv/python-${PYTHON_VERSION}/bin/jupyter". In package mode, enter "add IJulia". 
+   # In package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add DataFrames".
    ```
 
 5. Update the VS Code settings file.
