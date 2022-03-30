@@ -164,12 +164,19 @@
    # Delete obsolete symlinks to Julia in /usr/local/bin
    ```
 
-4. Install IJulia and create a project environment.
+4. Create a project environment.
 
    ```Shell
    julia-${JULIA_VERSION}
-   # In Julia mode, enter ENV["JUPYTER"]="~/venv/python-${PYTHON_VERSION}/bin/jupyter". In package mode, enter "add IJulia". 
-   # In package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add DataFrames".
+   # In Julia mode, enter ENV["JUPYTER"]="~/venv/python-${PYTHON_VERSION}/bin/jupyter". 
+   # In package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add IJulia".
+   ```
+5. Update the IJulia kernel settings.
+
+   ```Shell
+   nano /home/ec2-user/.local/share/jupyter/kernels/julia-1.7/kernel.json
+   # If the json file is not found, activate the python environment and type "jupyter kernelspec list" to find the folder.
+   # Within "arvg", set --project to ~/venv/julia-${JULIA_VERSION}.
    ```
 
 5. Update the VS Code settings file.
