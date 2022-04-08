@@ -22,25 +22,10 @@
 
 1. Check the latest version of OpenSSL on <https://www.openssl.org/>.
 
-2. Download and install OpenSSL.
-
-   Python 3.10.x requires openssl 1.1.1 or higher. Amazon Linux 2 has openssl 1.1.1.
+2. Install OpenSSL 1.1.1.
 
    ```Shell
-   cd ~/downloads
-   export OPENSSL_VERSION=3.0.2
-   wget https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz
-   tar -xf openssl-${OPENSSL_VERSION}.tar.gz
-   cd openssl-${OPENSSL_VERSION}
-   sudo yum install yum-utils
-   sudo yum-builddep python3
-   sudo yum install perl-IPC-Cmd
-   sudo yum install perl-Test-Simple
-   ./Configure --prefix=/opt/openssl-${OPENSSL_VERSION} --libdir=lib --openssldir=/opt/openssl-${OPENSSL_VERSION}/ssl '-Wl,-rpath,/opt/openssl-${OPENSSL_VERSION}/lib'
-   make -j -s
-   make test
-   sudo make install
-   /opt/openssl-${OPENSSL_VERSION}/bin/openssl version
+   sudo yum install openssl11-deval
    ```
 
 4. Check the latest version of Python on <https://www.python.org/>.
@@ -54,7 +39,8 @@
    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
    tar -xf Python-${PYTHON_VERSION}.tgz
    cd Python-${PYTHON_VERSION}
-   ./configure --prefix=/opt/python-${PYTHON_VERSION} --enable-optimizations --with-lto --with-openssl=/opt/openssl-${OPENSSL_VERSION} --with-openssl-rpath=/opt/openssl-${OPENSSL_VERSION}/lib LDFLAGS=-Wl,-rpath,/opt/python-${PYTHON_VERSION}/lib
+   sed -i 's/PKG_CONFIG openssl /PKG_CONFIG openssl11 /g' configure
+   ./configure --prefix=/opt/python-${PYTHON_VERSION} --enable-optimizations --with-lto LDFLAGS=-Wl,-rpath,/opt/python-${PYTHON_VERSION}/lib
    make -j -s
    make test
    sudo make install
