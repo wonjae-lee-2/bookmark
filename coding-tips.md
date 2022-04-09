@@ -20,16 +20,23 @@
 
 ### Python
 
-1. Install OpenSSL 1.1.1.
+1. Check the latest version of Python on <https://www.python.org/>.
+
+2. Install dependencies.
+
+   ```Shell
+   sudo yum install yum-utils
+   sudo yum-builddep python3
+   ```
+
+3. Install OpenSSL 1.1.1.
 
    ```Shell
    sudo yum install openssl11
    sudo yum install openssl11-devel
    ```
 
-2. Check the latest version of Python on <https://www.python.org/>.
-
-3. Download and install Python.
+4. Download and install Python.
 
    ```Shell
    cd ~/downloads
@@ -45,14 +52,14 @@
    /opt/python-${PYTHON_VERSION}/bin/python3.10 --version
    ```
 
-4. Create a symlink to Python.
+5. Create a symlink to Python.
 
    ```Shell
    sudo ln -s /opt/python-${PYTHON_VERSION}/bin/python3.10 /usr/local/bin/python-${PYTHON_VERSION}
    # Delete obsolete symlinks to Python in /usr/local/bin
    ```
 
-5. Create a virtual environment.
+6. Create a virtual environment.
 
    ```Shell
    python-${PYTHON_VERSION} -m venv ~/venv/python-${PYTHON_VERSION}
@@ -60,7 +67,7 @@
    deactivate   
    ```
 
-6. Update the VS Code settings file.
+7. Update the VS Code settings file.
 
 ### PostgreSQL
 
