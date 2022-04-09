@@ -79,6 +79,68 @@
 
 8. Update the VS Code settings file.
 
+### Julia
+
+1. Check the latest version of Julia on <https://julialang.org/>.
+
+2. Download and install Julia.
+
+   ```Shell
+   cd ~/downloads
+   export JULIA_VERSION=1.7.2
+   wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-${JULIA_VERSION}-linux-x86_64.tar.gz
+   sudo mkdir /opt/julia-${JULIA_VERSION}
+   sudo tar -xf julia-${JULIA_VERSION}-linux-x86_64.tar.gz -C /opt/
+   ```
+
+3. Create a symlink to Julia.
+
+   ```Shell
+   sudo ln -s /opt/julia-${JULIA_VERSION}/bin/julia /usr/local/bin/julia-${JULIA_VERSION}
+   # Delete obsolete symlinks to Julia in /usr/local/bin
+   ```
+
+4. Create a project environment.
+
+   ```Shell
+   julia-${JULIA_VERSION}
+   # In Julia mode, enter ENV["JUPYTER"]="~/venv/python-${PYTHON_VERSION}/bin/jupyter". 
+   # In package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add IJulia".
+   ```
+5. Update the IJulia kernel settings.
+
+   ```Shell
+   nano /home/ec2-user/.local/share/jupyter/kernels/julia-1.7/kernel.json
+   # If the json file is not found, activate the python environment and type "jupyter kernelspec list" to find the folder.
+   # Within "arvg", set --project to ~/venv/julia-${JULIA_VERSION}.
+   ```
+
+5. Update the VS Code settings file.
+
+### R
+
+1. Install and add the user to the docker group.
+
+   ```Shell
+   sudo yum install docker
+   sudo groupadd docker
+   sudo usermod -aG docker $USER
+   sudo reboot
+   ```
+
+2. Start and test the docker
+
+   ```Shell
+   sudo systemctl start docker
+   docker run --rm hello-world
+   ```
+
+3. Run the tidyverse container.
+
+   ```Shell
+   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github,dst=/home/rstudio/github rocker/tidyverse:4.1.3
+   ```
+
 ### PostgreSQL
 
 1. Check the latest version of PostgreSQL on <https://www.postgresql.org/>.
@@ -144,44 +206,6 @@
    logout
    ```
 
-### Julia
-
-1. Check the latest version of Julia on <https://julialang.org/>.
-
-2. Download and install Julia.
-
-   ```Shell
-   cd ~/downloads
-   export JULIA_VERSION=1.7.2
-   wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-${JULIA_VERSION}-linux-x86_64.tar.gz
-   sudo mkdir /opt/julia-${JULIA_VERSION}
-   sudo tar -xf julia-${JULIA_VERSION}-linux-x86_64.tar.gz -C /opt/
-   ```
-
-3. Create a symlink to Julia.
-
-   ```Shell
-   sudo ln -s /opt/julia-${JULIA_VERSION}/bin/julia /usr/local/bin/julia-${JULIA_VERSION}
-   # Delete obsolete symlinks to Julia in /usr/local/bin
-   ```
-
-4. Create a project environment.
-
-   ```Shell
-   julia-${JULIA_VERSION}
-   # In Julia mode, enter ENV["JUPYTER"]="~/venv/python-${PYTHON_VERSION}/bin/jupyter". 
-   # In package mode, enter "activate ~/venv/julia-${JULIA_VERSION}" and "add IJulia".
-   ```
-5. Update the IJulia kernel settings.
-
-   ```Shell
-   nano /home/ec2-user/.local/share/jupyter/kernels/julia-1.7/kernel.json
-   # If the json file is not found, activate the python environment and type "jupyter kernelspec list" to find the folder.
-   # Within "arvg", set --project to ~/venv/julia-${JULIA_VERSION}.
-   ```
-
-5. Update the VS Code settings file.
-
 ### Node.js
 
 1. Download and install the Node.js binary.
@@ -231,30 +255,6 @@
    ```Shell
    rustup check
    rustup update
-   ```
-
-### R
-
-1. Install and add the user to the docker group.
-
-   ```Shell
-   sudo yum install docker
-   sudo groupadd docker
-   sudo usermod -aG docker $USER
-   sudo reboot
-   ```
-
-2. Start and test the docker
-
-   ```Shell
-   sudo systemctl start docker
-   docker run --rm hello-world
-   ```
-
-3. Run the tidyverse container.
-
-   ```Shell
-   docker run --rm -p 8787:8787 --mount type=bind,src=/home/ec2-user/github,dst=/home/rstudio/github rocker/tidyverse:4.1.3
    ```
 
 ### Git
