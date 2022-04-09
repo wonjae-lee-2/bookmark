@@ -20,46 +20,55 @@
 
 ### Python
 
-1. Check the latest version of Python on <https://www.python.org/>.
+1. Check the latest version of OpenSSL on <https://www.openssl.org/>.
 
-2. Install dependencies.
+2. Download and install OpenSSL.
 
-   ```Shell
-   sudo yum install yum-utils
-   sudo yum-builddep python3
-   ```
-
-3. Install OpenSSL 1.1.1.
-
-   ```Shell
-   sudo yum install openssl11
-   sudo yum install openssl11-devel
-   ```
-
-4. Download and install Python.
+   Python 3.10.x requires openssl 1.1.1 or higher. Amazon Linux 2 has openssl 1.1.1.
 
    ```Shell
    cd ~/downloads
-   export PYTHON_VERSION=3.10.4
+   export OPENSSL_VERSION=3.0.2
+   wget https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz
+   tar -xf openssl-${OPENSSL_VERSION}.tar.gz
+   cd openssl-${OPENSSL_VERSION}
+   sudo yum install yum-utils
+   sudo yum-builddep python3
+   sudo yum install perl-IPC-Cmd
+   sudo yum install perl-Test-Simple
+   ./Configure --prefix=/opt/openssl-${OPENSSL_VERSION} --libdir=lib --openssldir=/opt/openssl-${OPENSSL_VERSION}/ssl '-Wl,-rpath,/opt/openssl-${OPENSSL_VERSION}/lib'
+   make -j -s
+   make test
+   sudo make install
+   /opt/openssl-${OPENSSL_VERSION}/bin/openssl version
+   ```
+
+4. Check the latest version of Python on <https://www.python.org/>.
+
+5. Download and install Python.
+
+   ```Shell
+   cd ~/downloads
+   export OPENSSL_VERSION=3.0.2
+   export PYTHON_VERSION=3.10.3
    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
    tar -xf Python-${PYTHON_VERSION}.tgz
    cd Python-${PYTHON_VERSION}
-   sed -i 's/PKG_CONFIG openssl /PKG_CONFIG openssl11 /g' configure
-   ./configure --prefix=/opt/python-${PYTHON_VERSION} --enable-optimizations --with-lto LDFLAGS=-Wl,-rpath,/opt/python-${PYTHON_VERSION}/lib
+   ./configure --prefix=/opt/python-${PYTHON_VERSION} --enable-optimizations --with-lto --with-openssl=/opt/openssl-${OPENSSL_VERSION} --with-openssl-rpath=/opt/openssl-${OPENSSL_VERSION}/lib LDFLAGS=-Wl,-rpath,/opt/python-${PYTHON_VERSION}/lib
    make -j -s
    make test
    sudo make install
    /opt/python-${PYTHON_VERSION}/bin/python3.10 --version
    ```
 
-5. Create a symlink to Python.
+6. Create a symlink to Python.
 
    ```Shell
    sudo ln -s /opt/python-${PYTHON_VERSION}/bin/python3.10 /usr/local/bin/python-${PYTHON_VERSION}
    # Delete obsolete symlinks to Python in /usr/local/bin
    ```
 
-6. Create a virtual environment.
+7. Create a virtual environment.
 
    ```Shell
    python-${PYTHON_VERSION} -m venv ~/venv/python-${PYTHON_VERSION}
@@ -67,7 +76,7 @@
    deactivate   
    ```
 
-7. Update the VS Code settings file.
+8. Update the VS Code settings file.
 
 ### PostgreSQL
 
@@ -263,6 +272,34 @@
    ```
 
 3. Add the SSH key to GitHub.
+
+4. Clone a repository.
+
+   ```Shell
+   cd ~/github
+   git clone git@github.com:wonje-lee-2/islr2
+   ```
+
+### Rclone
+
+1. Install Rclone.
+
+   ```Shell
+   sudo yum install rclone
+   ```
+
+2. Configure Rclone for OneDrive.
+
+   ```Shell
+   rclone config
+   ```
+
+3. Sync a folder to OneDrive.
+
+   ```Shell
+   cd ~/github/islr2
+   rclone sync -i . remote:github/islr2
+   ```
 
 ### Visual Studio Code
 
