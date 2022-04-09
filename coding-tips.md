@@ -293,13 +293,14 @@
 
    ```Shell
    rclone config
+   # Set the name of the remote as ondrive.
    ```
 
 3. Sync a folder to OneDrive.
 
    ```Shell
    cd ~/github/islr2
-   rclone sync -i . remote:github/islr2
+   rclone sync -i . onedrive:github/islr2
    ```
 
 ### Visual Studio Code
