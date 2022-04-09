@@ -23,7 +23,8 @@
 1. Install OpenSSL 1.1.1.
 
    ```Shell
-   sudo yum install openssl11-deval
+   sudo yum install openssl11
+   sudo yum install openssl11-devel
    ```
 
 2. Check the latest version of Python on <https://www.python.org/>.
