@@ -68,11 +68,12 @@
    # Delete obsolete symlinks to Python in /usr/local/bin
    ```
 
-7. Create a virtual environment.
+7. Create a virtual environment and install Jupyter Lab.
 
    ```Shell
    python-${PYTHON_VERSION} -m venv ~/venv/python-${PYTHON_VERSION}
    source ~/venv/python-${PYTHON_VERSION}/bin/activate
+   pip install jupyterlab
    deactivate   
    ```
 
