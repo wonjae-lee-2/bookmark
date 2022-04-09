@@ -188,7 +188,7 @@
 
    ```Shell
    cd ~/downloads
-   export NODE_VERSION=16.14.0
+   export NODE_VERSION=16.14.2
    wget https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz
    sudo mkdir /opt/node-${NODE_VERSION}
    sudo tar -xf node-v${NODE_VERSION}-linux-x64.tar.xz --strip-components=1 -C /opt/node-${NODE_VERSION}
