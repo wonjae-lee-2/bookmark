@@ -50,7 +50,7 @@
    ```Shell
    cd ~/downloads
    export OPENSSL_VERSION=3.0.2
-   export PYTHON_VERSION=3.10.3
+   export PYTHON_VERSION=3.10.4
    wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
    tar -xf Python-${PYTHON_VERSION}.tgz
    cd Python-${PYTHON_VERSION}
