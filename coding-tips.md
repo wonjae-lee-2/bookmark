@@ -233,11 +233,19 @@
       libssl-dev
    ```
 
-7. Type `~C` and then `-L 8787:localhost:8787` to request local forward.
+8. Run `requirements.r` in Rstudio Server.
 
-8. Type `localhost:8787` in the browser and run `~/github/docker/r/requirements.r` in Rstudio Server.
+   ```Shell
+   # Type `~C` and then `-L 8787:localhost:8787` to request local forward.
+   # Type `localhost:8787` in the browser and run `~/github/docker/r/requirements.r` in Rstudio Server.
+   ```
 
-9. Type `rstudio-server stop` to stop Rstudio Server.
+9. Stop Rstudio Server and prevent it from starting automatically at startup.
+
+   ```Shell
+   rstudio-server stop
+   sudo systemctl disable rstudio-server
+   ```
 
 ### Node.js
 
