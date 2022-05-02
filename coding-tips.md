@@ -260,6 +260,29 @@
    npm -v
    ```
 
+### Rust
+
+1. Install Rust.
+
+   ```Shell
+   curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+   ```
+
+2. Log out of EC2 and then SSH into EC2 again.
+
+3. Check the version of Rust.
+
+   ```Shell
+   rustc --version
+   ```
+
+4. Update Rust.
+
+   ```Shell
+   rustup check
+   rustup update
+   ```
+
 ### PostgreSQL
 
 1. Check the latest version of PostgreSQL on <https://www.postgresql.org/>.
@@ -396,6 +419,7 @@
    - "Python" from Microsoft
    - "Remote-Containers" from Microsoft
    - "Remote-SSH" from Microsoft
+   - "Rust" from The Rust Programming Language
    
 2. Connect to the virtual machine and install the extensions.
 
