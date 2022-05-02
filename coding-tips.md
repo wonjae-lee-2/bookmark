@@ -407,6 +407,13 @@
    docker run --rm hello-world
    ```
 
+3. Build Docker images.
+
+   ```Shell
+   cd ~/github/docker
+   # Follow instructions in README.md
+   ```
+
 ### Visual Studio Code
 
 1. Install the following extensions on the local machine.
