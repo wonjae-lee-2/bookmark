@@ -36,11 +36,18 @@
 
 3. Add the SSH key to GitHub.
 
-4. Clone a repository.
+4. Clone the docker repository.
 
    ```Shell
    cd ~/github
    git clone git@github.com:wonjae-lee-2/docker
+   ```
+
+5. Add the directory to $PATH.
+
+   ```Shell
+   nano ~/.profile
+   # Add PATH="~/github/docker:$PATH".
    ```
 
 ### Python
