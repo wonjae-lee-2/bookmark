@@ -149,7 +149,7 @@ mkdir ~/downloads ~/github ~/venv
 
 1. Check the latest version of R on <https://www.r-project.org/>.
 
-2. Install build dependencies. # Add gfortran to https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Useful-libraries-and-programs
+2. Install build dependencies. # Add gfortran and gdebi-core to https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Useful-libraries-and-programs
 
    ```Shell
    sudo apt install \
@@ -181,7 +181,8 @@ mkdir ~/downloads ~/github ~/venv
       zlib1g-dev \
       libblas-dev \
       liblapack-dev \
-      gfortran
+      gfortran \
+      gdebi-core
    ```
  
  3. Download and install R.
