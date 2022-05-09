@@ -8,16 +8,50 @@
 
 ## Installation
 
+### OpenSSH
+
+1. Create the OpenSSH `config` file in the remote machine.
+
+```Powershell
+New-Item `
+   -Force `
+   -Path "~\.ssh" `
+   -Name "config" `
+   -ItemType "file" `
+   -Value (
+      "Host *`n  ServerAliveInterval 600`n  ServerAliveCountMax 6`n" +
+      "Host aws`n  Hostname ec2-3-83-6-11.compute-1.amazonaws.com`n  User ubuntu`n  IdentityFile ~\.ssh\us-east-1.pem`n"
+   )
+```
+
+2. Delete the OpenSSH `known_hosts` file in the remote machine.
+
+```Powershell
+rm ~\.ssh\known_hosts
+```
+
+3. Log into the EC2 instance with OpenSSH.
+
+```Powershell
+ssh aws
+```
+
 ### Shell
 
-1. Update packages and create folders.
+1. Set a password for the default user.
 
-   ```Shell
-   sudo apt update
-   sudo apt upgrade
-   sudo apt autoremove
-   mkdir ~/downloads ~/github ~/venv
-   ```
+```Shell
+sudo passwd ubuntu
+```
+
+2. Update packages and create folders.
+
+```Shell
+sudo apt update
+sudo apt upgrade
+sudo apt autoremove
+mkdir ~/downloads ~/github ~/venv
+```
 
 ### Git
 
@@ -111,45 +145,14 @@
 
 5. Update the VS Code settings file.
 
-### Julia
-
-1. Check the latest version of Julia on <https://julialang.org/>.
-
-2. Download and install Julia.
-
-   ```Shell
-   cd ~/downloads
-   export JULIA_VERSION_SHORT=1.7
-   export JULIA_VERSION_LONG=1.7.2
-   wget https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_VERSION_SHORT}/julia-${JULIA_VERSION_LONG}-linux-x86_64.tar.gz
-   sudo mkdir /opt/julia-${JULIA_VERSION_LONG}
-   sudo tar -xf julia-${JULIA_VERSION_LONG}-linux-x86_64.tar.gz -C /opt/
-   ```
-
-3. Create a symlink to Julia.
-
-   ```Shell
-   sudo ln -s /opt/julia-${JULIA_VERSION_LONG}/bin/julia /usr/local/bin/julia-${JULIA_VERSION_LONG}
-   # Delete obsolete symlinks to Julia in /usr/local/bin
-   ```
-
-4. Create a project and install packages.
-
-   ```Shell
-   julia-${JULIA_VERSION_LONG} --project=~/venv/julia-${JULIA_VERSION_LONG} ~/github/docker/julia/requirements.jl
-   ```
-
-5. Update the VS Code settings file.
-
 ### R
 
 1. Check the latest version of R on <https://www.r-project.org/>.
 
-2. Install build dependencies. # https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Useful-libraries-and-programs
+2. Install build dependencies. # Add gfortran to https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Useful-libraries-and-programs
 
    ```Shell
    sudo apt install \
-      gfortran \
       libbz2-dev \
       libcairo2-dev \
       fontconfig \
@@ -178,7 +181,7 @@
       zlib1g-dev \
       libblas-dev \
       liblapack-dev \
-      gdebi-core
+      gfortran
    ```
  
  3. Download and install R.
@@ -209,7 +212,7 @@
    # Delete obsolete symlinks to R and Rscript in /usr/local/bin
    ```
 
-5. Download and install RStudio Server. (Ubuntu 22.04 daily builds from https://dailies.rstudio.com/)
+5. Download and install RStudio Server. # https://www.rstudio.com/ or daily builds from https://dailies.rstudio.com/
 
    ```Shell
    cd ~/downloads
@@ -243,11 +246,6 @@
 
 9. Stop Rstudio Server and prevent it from starting automatically at startup.
 
-   ```Shell
-   rstudio-server stop
-   sudo systemctl disable rstudio-server
-   ```
-
 ### Node.js
 
 1. Download and install the Node.js binary.
@@ -275,6 +273,36 @@
    node -v
    npm -v
    ```
+
+### Julia
+
+1. Check the latest version of Julia on <https://julialang.org/>.
+
+2. Download and install Julia.
+
+   ```Shell
+   cd ~/downloads
+   export JULIA_VERSION_SHORT=1.7
+   export JULIA_VERSION_LONG=1.7.2
+   wget https://julialang-s3.julialang.org/bin/linux/x64/${JULIA_VERSION_SHORT}/julia-${JULIA_VERSION_LONG}-linux-x86_64.tar.gz
+   sudo mkdir /opt/julia-${JULIA_VERSION_LONG}
+   sudo tar -xf julia-${JULIA_VERSION_LONG}-linux-x86_64.tar.gz -C /opt/
+   ```
+
+3. Create a symlink to Julia.
+
+   ```Shell
+   sudo ln -s /opt/julia-${JULIA_VERSION_LONG}/bin/julia /usr/local/bin/julia-${JULIA_VERSION_LONG}
+   # Delete obsolete symlinks to Julia in /usr/local/bin
+   ```
+
+4. Create a project and install packages.
+
+   ```Shell
+   julia-${JULIA_VERSION_LONG} --project=~/venv/julia-${JULIA_VERSION_LONG} ~/github/docker/julia/requirements.jl
+   ```
+
+5. Update the VS Code settings file.
 
 ### Rust
 
