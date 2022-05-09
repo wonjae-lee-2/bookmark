@@ -230,7 +230,8 @@
       libcurl4-openssl-dev \
       libxml2-dev \
       libpq-dev \
-      libssl-dev
+      libssl-dev \
+      libmariadb-dev
    ```
 
 8. Run `requirements.r` in Rstudio Server.
