@@ -214,7 +214,7 @@
    ```Shell
    cd ~/downloads
    wget https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-server-2022.06.0-daily-373-amd64.deb
-   sudo gdebi rstudio-server-2022.06.0-daily-343-amd64.deb
+   sudo gdebi rstudio-server-2022.06.0-daily-373-amd64.deb
    ```
 
 6. Set a password for the default user.
