@@ -434,6 +434,8 @@
    logout
    ```
 
+9. On a remote host, install both Connector/NET and Connector/ODBC to connect Power BI to MySQL.
+
 ### Rclone
 
 1. Install Rclone.
