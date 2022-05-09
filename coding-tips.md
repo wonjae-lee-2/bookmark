@@ -328,38 +328,109 @@
    ```Shell
    sudo useradd -m postgres
    sudo passwd postgres
-   sudo mkdir /opt/pgsql-${PGSQL_VERSION}/data
-   sudo chown postgres /opt/pgsql-${PGSQL_VERSION}/data
+   sudo mkdir /home/postgres/data
+   sudo chown postgres /home/postgres/data
    ```
 
 5. Log in as the user `postgres` and initialize a database cluster.
 
    ```Shell
-   su - postgres
+   su -s /bin/bash - postgres
    export PGSQL_VERSION=14.2
-   /opt/pgsql-${PGSQL_VERSION}/bin/initdb -D /opt/pgsql-${PGSQL_VERSION}/data
+   /opt/pgsql-${PGSQL_VERSION}/bin/initdb -D /home/postgres/data
    ```
 
 6. Update connection settings.
 
    ```Shell
-   nano /opt/pgsql-${PGSQL_VERSION}/data/pg_hba.conf
+   nano /home/postgres/data/pg_hba.conf
    # Add "host all all all md5" to IPv4 local connections.
-   nano /opt/pgsql-${PGSQL_VERSION}/data/postgresql.conf
+   nano /home/postgres/data/postgresql.conf
    # Set "listen_addresses" to '*' under connection strings.
    ```
 
 7. Start a PostgreSQL server.
 
    ```Shell
-   /opt/pgsql-${PGSQL_VERSION}/bin/pg_ctl -D /opt/pgsql-${PGSQL_VERSION}/data -l logfile start
+   /opt/pgsql-${PGSQL_VERSION}/bin/pg_ctl -D /home/postgres/data -l /home/postgres/logfile start
    ```
 
-8. Add a password to the user `postgres` and log out.
+8. Add a password to the user `postgres` and stop the server.
 
    ```Shell
    psql-${PGSQL_VERSION}
    # Type "ALTER USER postgres PASSWORD '${PASSWORD}';"
+   /opt/pgsql-${PGSQL_VERSION}/bin/pg_ctl stop
+   logout
+   ```
+
+### MySQL
+
+1. Check the latest version of MySQL on <https://www.mysql.com/>.
+
+2. Download and install MySQL .
+
+   ```Shell
+   cd ~/downloads
+   export MYSQL_VERSION_SHORT=8.0
+   export MYSQL_VERSION_LONG=8.0.29
+   wget https://dev.mysql.com/get/Downloads/MySQL-${MYSQL_VERSION_SHORT}/mysql-${MYSQL_VERSION_LONG}-linux-glibc2.12-x86_64.tar.xz
+   sudo mkdir /opt/mysql-${MYSQL_VERSION_LONG}
+   sudo tar -xf mysql-${MYSQL_VERSION_LONG}-linux-glibc2.12-x86_64.tar.xz --strip-components=1 -C /opt/mysql-${MYSQL_VERSION_LONG}
+   ```
+
+3. Install dependencies and Create a symlink to MySQL.
+
+   ```Shell
+   sudo apt install \
+      libaio1 \
+      libtinfo5
+   sudo ln -s /opt/mysql-${MYSQL_VERSION_LONG}/bin/mysql /usr/local/bin/mysql-${MYSQL_VERSION_LONG}
+   # Delete obsolete symlinks to MySQL in /usr/local/bin
+   ```
+
+4. Add the `mysql` user group and the `mysql` user.
+
+   ```Shell
+   sudo groupadd mysql
+   sudo useradd -m -g mysql mysql
+   sudo passwd mysql
+   ```
+
+5. Create the import and export directory and the data directory.
+
+   ```Shell
+   sudo mkdir /home/mysql/mysql-files
+   sudo chown mysql:mysql /home/mysql/mysql-files
+   sudo chmod 750 /home/mysql/mysql-files
+   sudo mkdir /home/mysql/data
+   sudo chown -R mysql /home/mysql/data
+   sudo chgrp -R mysql /home/mysql/data
+   ```
+
+6. Initialize the data directory.
+
+   ```Shell
+   su -s /bin/bash - mysql
+   export MYSQL_VERSION_LONG=8.0.29
+   /opt/mysql-${MYSQL_VERSION_LONG}/bin/mysqld --initialize --basedir=/opt/mysql-${MYSQL_VERSION_LONG} --datadir=/home/mysql/data
+   /opt/mysql-${MYSQL_VERSION_LONG}/bin/mysql_ssl_rsa_setup --datadir=/home/mysql/data
+   ```
+
+7. Start the MySQL server.
+
+   ```Shell
+   /opt/mysql-${MYSQL_VERSION_LONG}/bin/mysqld_safe --basedir=/opt/mysql-${MYSQL_VERSION_LONG} --datadir=/home/mysql/data --secure-file-priv=/home/mysql/mysql-files &
+   ```
+
+8. Assign a new password to the root account and stop the server.
+
+   ```Shell
+   mysql-${MYSQL_VERSION_LONG} -u root -p
+   # Type ALTER USER 'root'@'localhost' IDENTIFIED BY 'new-password';
+   # Type CREATE USER 'admin'@'%' IDENTIFIED BY 'new-password';
+   # Type GRANT ALL ON *.* TO 'admin'@'%';
+   /opt/mysql-${MYSQL_VERSION_LONG}/bin/mysqladmin -u root -p shutdown
    logout
    ```
 
